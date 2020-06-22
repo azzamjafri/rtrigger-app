@@ -9,7 +9,6 @@ import 'package:simple_permissions/simple_permissions.dart';
 
 const directoryName = 'Signature';
 
-
 class SignApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -28,6 +27,7 @@ class SignAppState extends State<SignApp> {
     super.initState();
     initPlatformState();
   }
+
   // Platform messages are asynchronous, so we initialize in an async method.
   initPlatformState() async {
     String platformVersion;
@@ -85,7 +85,7 @@ class SignAppState extends State<SignApp> {
 
   Future<Null> showImage(BuildContext context) async {
     var pngBytes = await image.toByteData(format: ui.ImageByteFormat.png);
-    if(!(await checkPermission())) await requestPermission();
+    if (!(await checkPermission())) await requestPermission();
     // Use plugin [path_provider] to export image to storage
     Directory directory = await getExternalStorageDirectory();
     String path = directory.path;
@@ -100,29 +100,31 @@ class SignAppState extends State<SignApp> {
             title: Text(
               'Please check your device\'s Signature folder',
               style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w300,
-                color: Theme.of(context).primaryColor,
-                letterSpacing: 1.1
-              ),
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w300,
+                  color: Theme.of(context).primaryColor,
+                  letterSpacing: 1.1),
             ),
             content: Image.memory(Uint8List.view(pngBytes.buffer)),
           );
-        }
-    );
+        });
   }
 
   String formattedDate() {
     DateTime dateTime = DateTime.now();
     String dateTimeString = 'Signature_' +
         dateTime.year.toString() +
-            dateTime.month.toString() +
-            dateTime.day.toString() +
-            dateTime.hour.toString() +
-            ':' + dateTime.minute.toString() +
-            ':' + dateTime.second.toString() +
-            ':' + dateTime.millisecond.toString() +
-            ':' + dateTime.microsecond.toString();
+        dateTime.month.toString() +
+        dateTime.day.toString() +
+        dateTime.hour.toString() +
+        ':' +
+        dateTime.minute.toString() +
+        ':' +
+        dateTime.second.toString() +
+        ':' +
+        dateTime.millisecond.toString() +
+        ':' +
+        dateTime.microsecond.toString();
     return dateTimeString;
   }
 
@@ -140,11 +142,10 @@ class SignAppState extends State<SignApp> {
     final result = await SimplePermissions.getPermissionStatus(_permission);
     print("permission status is " + result.toString());
   }
-
 }
 
 class Signature extends StatefulWidget {
-  Signature({Key key}): super(key: key);
+  Signature({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -169,7 +170,8 @@ class SignatureState extends State<Signature> {
     SignaturePainter painter = SignaturePainter(points: _points);
     var size = context.size;
     painter.paint(canvas, size);
-    return recorder.endRecording()
+    return recorder
+        .endRecording()
         .toImage(size.width.floor(), size.height.floor());
   }
 
@@ -181,7 +183,8 @@ class SignatureState extends State<Signature> {
           onPanUpdate: (DragUpdateDetails details) {
             setState(() {
               RenderBox _object = context.findRenderObject();
-              Offset _locationPoints = _object.localToGlobal(details.globalPosition);
+              Offset _locationPoints =
+                  _object.localToGlobal(details.globalPosition);
               _points = new List.from(_points)..add(_locationPoints);
             });
           },
@@ -209,7 +212,6 @@ class SignatureState extends State<Signature> {
   }
 }
 
-
 class SignaturePainter extends CustomPainter {
   // [SignaturePainter] receives points through constructor
   // @points holds the drawn path in the form (x,y) offset;
@@ -225,9 +227,9 @@ class SignaturePainter extends CustomPainter {
       ..strokeCap = StrokeCap.square
       ..strokeWidth = 5.0;
 
-    for(int i=0; i < points.length - 1; i++) {
-      if(points[i] != null && points[i+1] != null) {
-        canvas.drawLine(points[i], points[i+1], paint);
+    for (int i = 0; i < points.length - 1; i++) {
+      if (points[i] != null && points[i + 1] != null) {
+        canvas.drawLine(points[i], points[i + 1], paint);
       }
     }
   }
@@ -236,5 +238,4 @@ class SignaturePainter extends CustomPainter {
   bool shouldRepaint(SignaturePainter oldDelegate) {
     return oldDelegate.points != points;
   }
-
 }

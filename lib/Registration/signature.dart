@@ -89,7 +89,8 @@ class _SignatureState extends State<Signature> {
     return new MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
       onPressed: () async {
-        Navigator.push(context, new MaterialPageRoute(builder: (context) => EmailVerification()));
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => EmailVerification()));
       },
       minWidth: MediaQuery.of(context).size.width / 1.35,
       color: brownColor,

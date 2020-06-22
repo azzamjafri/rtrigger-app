@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rtiggers/Authentication/authentication.dart';
-
+import 'package:rtiggers/HomeScreen/HomeScreen.dart';
+import 'package:rtiggers/LoginScreen/registration.dart';
 import 'package:rtiggers/colors.dart';
 
 void main() {

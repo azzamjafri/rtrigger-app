@@ -67,7 +67,8 @@ class _DetailsState extends State<Details> {
             activeColor: Colors.black,
           ),
           RadioListTile(
-            title: Text('I have applied/will apply for bank account in my registered business'),
+            title: Text(
+                'I have applied/will apply for bank account in my registered business'),
             value: 2,
             groupValue: _bankRadioValue,
             onChanged: (val) {
@@ -167,7 +168,8 @@ class _DetailsState extends State<Details> {
     return new MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
       onPressed: () async {
-        Navigator.push(context, new MaterialPageRoute(builder: (context) => Signature()));
+        Navigator.push(
+            context, new MaterialPageRoute(builder: (context) => Signature()));
       },
       minWidth: MediaQuery.of(context).size.width / 1.35,
       color: blueColor,
