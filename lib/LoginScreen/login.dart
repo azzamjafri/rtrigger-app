@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rtiggers/LoginScreen/registration.dart';
+import 'package:rtiggers/Registration/registration.dart';
+
 
 import '../HomeScreen/HomeScreen.dart';
 import 'package:rtiggers/colors.dart';
