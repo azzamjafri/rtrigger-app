@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rtiggers/Authentication/authentication.dart';
-import 'package:rtiggers/HomeScreen/HomeScreen.dart';
+
 import 'package:rtiggers/LoginScreen/login.dart';
 import 'package:rtiggers/Registration/details.dart';
 import 'package:rtiggers/colors.dart';
@@ -61,7 +61,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: 5.0,
+            height: 25.0,
           ),
           Container(
             height: 100.0,
@@ -169,7 +169,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 45.0,
             width: MediaQuery.of(context).size.width / 1.35,
             child: new TextFormField(
-              // textAlign: TextAlign.center,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -241,7 +240,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0)),
             onPressed: () async {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Details()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Details()));
             },
             minWidth: MediaQuery.of(context).size.width / 1.35,
             color: brownColor,
@@ -289,12 +289,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Already have an account ?',
-                  style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 17.8, color: Colors.white)),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17.8,
+                      color: Colors.white)),
               GestureDetector(
                 child: Text('Login',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 17.8, color: Colors.white)),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17.8,
+                        color: Colors.white)),
                 onTap: () => Navigator.push(context,
                     new MaterialPageRoute(builder: (context) => LoginPage())),
               )

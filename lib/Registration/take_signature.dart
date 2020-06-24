@@ -5,7 +5,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:simple_permissions/simple_permissions.dart';
+// import 'package:simple_permissions/simple_permissions.dart';
 
 const directoryName = 'Signature';
 
@@ -20,7 +20,7 @@ class SignAppState extends State<SignApp> {
   GlobalKey<SignatureState> signatureKey = GlobalKey();
   var image;
   String _platformVersion = 'Unknown';
-  Permission _permission = Permission.WriteExternalStorage;
+  // Permission _permission = Permission.WriteExternalStorage;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class SignAppState extends State<SignApp> {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      platformVersion = await SimplePermissions.platformVersion;
+      // platformVersion = await SimplePermissions.platformVersion;
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -85,7 +85,7 @@ class SignAppState extends State<SignApp> {
 
   Future<Null> showImage(BuildContext context) async {
     var pngBytes = await image.toByteData(format: ui.ImageByteFormat.png);
-    if (!(await checkPermission())) await requestPermission();
+    // if (!(await checkPermission())) await requestPermission();
     // Use plugin [path_provider] to export image to storage
     Directory directory = await getExternalStorageDirectory();
     String path = directory.path;
@@ -128,20 +128,20 @@ class SignAppState extends State<SignApp> {
     return dateTimeString;
   }
 
-  requestPermission() async {
-    var result = await SimplePermissions.requestPermission(_permission);
-    return result;
-  }
+  // requestPermission() async {
+  //   var result = await SimplePermissions.requestPermission(_permission);
+  //   return result;
+  // }
 
-  checkPermission() async {
-    bool result = await SimplePermissions.checkPermission(_permission);
-    return result;
-  }
+  // checkPermission() async {
+  //   bool result = await SimplePermissions.checkPermission(_permission);
+  //   return result;
+  // }
 
-  getPermissionStatus() async {
-    final result = await SimplePermissions.getPermissionStatus(_permission);
-    print("permission status is " + result.toString());
-  }
+  // getPermissionStatus() async {
+  //   final result = await SimplePermissions.getPermissionStatus(_permission);
+  //   print("permission status is " + result.toString());
+  // }
 }
 
 class Signature extends StatefulWidget {
