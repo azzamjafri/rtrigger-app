@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
-class Payin extends StatefulWidget {
+class Menu extends StatefulWidget {
   @override
-  _PayinState createState() => _PayinState();
+  _MenuState createState() => _MenuState();
 }
 
-class _PayinState extends State<Payin> {
+class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

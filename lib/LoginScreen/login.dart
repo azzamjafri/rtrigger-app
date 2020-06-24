@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Image.asset(
-              "assets/d.png",
+              "assets/background1.png",
               fit: BoxFit.fill,
             ),
           ),
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 100.0,
             width: MediaQuery.of(context).size.width / 2,
             child: Center(
-                child: new Image.asset('assets/1.png')
+                child: new Image.asset('assets/logo.png')
                 ),
           ),
           SizedBox(
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
                 child: new Text('Login',
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 22.0,
                         fontWeight: FontWeight.bold))),
           ),
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 hintText: 'Enter Your ID',
-                fillColor: Colors.white,
+                fillColor: Colors.grey[200],
                 filled: true,
               ),
               controller: idController,
@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 
                 hintText: 'Enter Your Password',
-                fillColor: Colors.white,
+                fillColor: Colors.grey[200],
                 filled: true,
               ),
               controller: passwordController,
@@ -147,14 +147,12 @@ class _LoginPageState extends State<LoginPage> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0)),
             onPressed: () {
-              
-              canLogin ? Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen())) 
-                    :
-                    key.currentState.showSnackBar(SnackBar(content: Text('Something went wrong !')));
+              // canLogin ? Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen())) : key.currentState.showSnackBar(SnackBar(content: Text('Something went wrong !')));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
             },
             minWidth: MediaQuery.of(context).size.width / 1.35,
             color: brownColor,
-            child: Text("Login", style: TextStyle(color: Colors.white)),
+            child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 18.0, letterSpacing: 1.2)),
             height: 43.0,
           ),
           SizedBox(
@@ -164,13 +162,13 @@ class _LoginPageState extends State<LoginPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              new Text('Don\'t have an account ? '),
+              new Text('Don\'t have an account ? ', style: TextStyle(color: Colors.white),),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationScreen())) ;
                    
                 },
-                child: Text('Register', style: TextStyle(fontWeight: FontWeight.bold)),
+                child: Text('Register', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
               )
             ],
           )
