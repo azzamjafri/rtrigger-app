@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rtiggers/OrderScreen/OrderPage.dart';
 import 'package:rtiggers/PastOrder/past_order_utility.dart';
 import 'package:rtiggers/active_order_home.dart';
 import 'package:rtiggers/colors.dart';
 
-import 'ActiveOrders.dart';
 
 
-class OrderPage extends StatefulWidget {
+
+class PastOrder extends StatefulWidget {
   @override
-  _OrderPageState createState() => _OrderPageState();
+  _PastOrderState createState() => _PastOrderState();
 }
 
-class _OrderPageState extends State<OrderPage>
+class _PastOrderState extends State<PastOrder>
     with SingleTickerProviderStateMixin {
   TabController tabView;
   @override
@@ -79,18 +80,18 @@ class _OrderPageState extends State<OrderPage>
     return Column(
       children: [
         SizedBox(height: 6.0,),
-        Text('New Orders', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold, fontSize: 17.0)),
+        Text('Past Orders', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold, fontSize: 17.0)),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FlatButton( onPressed: (){
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => NewOrder()));
-              // Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => NewOrder()) );
+              
+              Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => OrderPage()));
             },
             child: new Text('New Order', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold),)),
             FlatButton(
               onPressed: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => ActiveOrder()));
+                
                 Navigator.push(context,  MaterialPageRoute(builder: (context) => ActiveOrderHelper()));
               },
               child: new Text('Active Order', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold),)),

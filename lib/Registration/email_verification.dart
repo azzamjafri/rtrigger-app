@@ -31,7 +31,9 @@ class _EmailVerificationState extends State<EmailVerification> {
         verificationCard(),
         detailsCard(),
         continueButton(),
-        SizedBox(height: 10.0,)
+        SizedBox(
+          height: 10.0,
+        )
       ],
     );
   }
@@ -149,9 +151,6 @@ class _EmailVerificationState extends State<EmailVerification> {
                   ],
                 ),
               ),
-
-              
-
             ],
           ),
         ),
@@ -159,8 +158,7 @@ class _EmailVerificationState extends State<EmailVerification> {
     );
   }
 
-
-continueButton() {
+  continueButton() {
     return new MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
       onPressed: () async {
@@ -175,6 +173,7 @@ continueButton() {
       height: 50.0,
     );
   }
+
   twoCheckRows(String v1, String v2) {
     return Column(
       children: [
