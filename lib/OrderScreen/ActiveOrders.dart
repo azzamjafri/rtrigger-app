@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rtiggers/ActiveOrders/all_active_orders.dart';
+import 'package:rtiggers/ActiveOrders/preparing_active_orders.dart';
 import 'package:rtiggers/colors.dart';
 
 
@@ -25,7 +27,7 @@ class _ActiveOrderState extends State<ActiveOrder>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text("Active Orders ", style: TextStyle(color: blueColor),),
+        title: Text("Accepting Orders ", style: TextStyle(color: blueColor),),
         elevation: 0,
         bottom: getTabBar(),
       ),
@@ -83,14 +85,15 @@ class _ActiveOrderState extends State<ActiveOrder>
         borderRadius: BorderRadius.circular(100),
         color: Colors.blue[100]
       ),
-      //indicatorColor: Colors.black,
+      // indicatorColor: Colors.black,
       controller: tabView,
       tabs: [
         Tab(
           icon: getTabHeader("ALL"),
+          
         ),
         Tab(
-          icon: getTabHeader("Prepared"),
+          icon: getTabHeader("Preparing"),
         ),
         Tab(
           icon: getTabHeader("Ready"),
@@ -103,15 +106,15 @@ class _ActiveOrderState extends State<ActiveOrder>
   }
 
    getTabHeader(String field) {
-    return Text(field, style: TextStyle(color: blueColor,fontWeight: FontWeight.bold,fontSize: 12.5),);
+    return Text(field, style: TextStyle(color: blueColor,fontWeight: FontWeight.bold, fontSize: 12.0),);
   }
 
   getBody() {
     return TabBarView(
       controller: tabView,
       children: [
-        Text("1"),
-        Text("2"),
+        AllActiveOrders(),
+        PreparingActiveOrders(),
         Text("3"),
         Text("4"),
       ],

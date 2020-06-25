@@ -202,19 +202,5 @@ class _NewOrderState extends State<NewOrder> {
     );
   }
 
-  //   Positioned(
-  //   top: MediaQuery.of(context).size.height / 1.8,
-  //   left: MediaQuery.of(context).size.width / 6,
-  //   child: Container(
-  //     height: 50.0,
-  //     width: MediaQuery.of(context).size.width / 2,
-  //     decoration: BoxDecoration(
-  //       color: blueColor,
-  //       borderRadius: BorderRadius.circular(12.0),
-  //     ),
-  //     child: Center(
-  //         child: Text('Order Delivered',
-  //             style: TextStyle(color: Colors.white))),
-  //   ),
-  // )
+  
 }

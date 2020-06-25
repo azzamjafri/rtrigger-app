@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rtiggers/HomeScreen/HomeScreen.dart';
 import 'package:rtiggers/OrderScreen/OrderPage.dart';
 import 'package:rtiggers/PastOrder/past_order_utility.dart';
 import 'package:rtiggers/active_order_home.dart';
@@ -86,7 +87,7 @@ class _PastOrderState extends State<PastOrder>
           children: [
             FlatButton( onPressed: (){
               
-              Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => OrderPage()));
+              Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => HomeScreen()));
             },
             child: new Text('New Order', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold),)),
             FlatButton(

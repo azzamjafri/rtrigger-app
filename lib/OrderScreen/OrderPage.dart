@@ -84,13 +84,12 @@ class _OrderPageState extends State<OrderPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FlatButton( onPressed: (){
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => NewOrder()));
-              // Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => NewOrder()) );
+              // Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => OrderPage()));
             },
             child: new Text('New Order', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold),)),
             FlatButton(
               onPressed: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => ActiveOrder()));
+                
                 Navigator.push(context,  MaterialPageRoute(builder: (context) => ActiveOrderHelper()));
               },
               child: new Text('Active Order', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold),)),
@@ -110,7 +109,7 @@ class _OrderPageState extends State<OrderPage>
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height / 4,
+        height: MediaQuery.of(context).size.height / 3.5,
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
