@@ -1,17 +1,19 @@
 import "package:flutter/material.dart";
+import 'package:rtiggers/MedicalActiveOrders/medical_orders.dart';
 import 'package:rtiggers/Menu/menu.dart';
 import 'package:rtiggers/More/more.dart';
-import 'package:rtiggers/OrderScreen/ActiveOrders.dart';
+
+import 'package:rtiggers/PastOrder/past_order.dart';
 import 'package:rtiggers/PayOut/payout.dart';
 import 'package:rtiggers/Profile/profile.dart';
 import 'package:rtiggers/colors.dart';
 
-class ActiveOrderHelper extends StatefulWidget {
+class MedicalOrdersHelper extends StatefulWidget {
   @override
-  _ActiveOrderHelperState createState() => _ActiveOrderHelperState();
+  _MedicalOrdersHelperState createState() => _MedicalOrdersHelperState();
 }
 
-class _ActiveOrderHelperState extends State<ActiveOrderHelper>with SingleTickerProviderStateMixin{
+class _MedicalOrdersHelperState extends State<MedicalOrdersHelper>with SingleTickerProviderStateMixin{
 
   TabController tabController;
   @override
@@ -72,7 +74,7 @@ class _ActiveOrderHelperState extends State<ActiveOrderHelper>with SingleTickerP
               physics: NeverScrollableScrollPhysics(),
               controller: tabController,
               children: [
-                ActiveOrder(),
+                MedicalOrder(),
 
                 Menu(),
 
