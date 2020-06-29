@@ -2,17 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rtiggers/HomeScreen/HomeScreen.dart';
 import 'package:rtiggers/MedicalActiveOrders/medical_active_orders_utility.dart';
-import 'package:rtiggers/MedicalActiveOrders/modify_price.dart';
 
 import 'package:rtiggers/active_order_home.dart';
 import 'package:rtiggers/colors.dart';
 
-class MedicalOrder extends StatefulWidget {
+class ModifyPrice extends StatefulWidget {
   @override
-  _MedicalOrderState createState() => _MedicalOrderState();
+  _ModifyPriceState createState() => _ModifyPriceState();
 }
 
-class _MedicalOrderState extends State<MedicalOrder>
+class _ModifyPriceState extends State<ModifyPrice>
     with SingleTickerProviderStateMixin {
   static const IconData attachment_icon =
       IconData(0xe2bc, fontFamily: 'MaterialIcons');
@@ -34,9 +33,7 @@ class _MedicalOrderState extends State<MedicalOrder>
             child: Container(
               height: MediaQuery.of(context).size.height / 1.4,
               width: MediaQuery.of(context).size.width - 50.0,
-              child: SingleChildScrollView(
-                child: getBody(),
-              )
+              child: getBody(),
             ),
           ),
           Row(
@@ -136,7 +133,6 @@ class _MedicalOrderState extends State<MedicalOrder>
       child: Column(
         children: [
           orderInProcess(),
-
           getOrder(),
         ],
       ),
@@ -195,7 +191,7 @@ class _MedicalOrderState extends State<MedicalOrder>
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
-                        height: 35.0,
+                        height: 40.0,
                         width: 130.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.0),
@@ -281,7 +277,7 @@ class _MedicalOrderState extends State<MedicalOrder>
                         ),
                         FlatButton(
                             onPressed: () {
-                              showModifyDialogue(context);
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => ModifyPrice()));
                             },
                             color: blueColor,
                             shape: RoundedRectangleBorder(
@@ -309,110 +305,6 @@ class _MedicalOrderState extends State<MedicalOrder>
           ),
         ),
       ),
-    );
-  }
-
-  void showModifyDialogue(BuildContext context) {
-    showGeneralDialog(
-      context: context,
-      barrierDismissible: false,
-      barrierLabel: "Barrier",
-      barrierColor: Colors.black.withOpacity(0.5),
-      transitionDuration: Duration(milliseconds: 50),
-      pageBuilder: (_, __, ___) {
-        return Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-                          child: Container(
-                height: 200,
-                child: SizedBox.expand(
-        child: Material(
-              type: MaterialType.transparency,
-              child: Padding(
-                padding: const EdgeInsets.all(7.0),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2.6,
-                  child: Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text("1 Order #106",
-                            style: TextStyle(fontSize: 17.0)),
-                        Padding(
-                          padding: EdgeInsets.all(2.0),
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text("Pricing  ")),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Container(
-                                height: 35.0,
-                                width: 130.0,
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(20.0),
-                                ),
-                                child: TextFormField(
-                                  decoration: new InputDecoration(
-                                    prefixText: 'Rs ',
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(width: 2.0),
-                                        borderRadius:
-                                            BorderRadius.circular(30.0)),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(width: 2.0),
-                                        borderRadius:
-                                            BorderRadius.circular(30.0)),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(4.0),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: FlatButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              color: blueColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              child: Text('Submit',
-                                  style: TextStyle(color: Colors.white))),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ))),
-                margin: EdgeInsets.only(bottom: 50, left: 12, right: 12),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(40),
-                ),
-              ),
-            ),
-          );
-      },
-      transitionBuilder: (_, anim, __, child) {
-        return SlideTransition(
-          position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
-          child: child,
-        );
-      },
     );
   }
 

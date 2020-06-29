@@ -15,8 +15,7 @@ class _OrderPageState extends State<OrderPage>
     with SingleTickerProviderStateMixin {
   TabController tabView;
 
-  static const IconData attachment_icon =
-      IconData(0xe2bc, fontFamily: 'MaterialIcons');
+  static const IconData attachment_icon = IconData(0xe2bc, fontFamily: 'MaterialIcons');
   @override
   void initState() {
     tabView = TabController(length: 3, vsync: this, initialIndex: 1);
@@ -108,10 +107,16 @@ class _OrderPageState extends State<OrderPage>
                 )),
             FlatButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PastOrderHelper()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PastOrderHelper()));
                 },
-                child: new Text( 'Past Order', style: TextStyle(color: blueColor, fontWeight: FontWeight.bold),)
-                ),
+                child: new Text(
+                  'Past Order',
+                  style:
+                      TextStyle(color: blueColor, fontWeight: FontWeight.bold),
+                )),
           ],
         ),
       ],
@@ -122,8 +127,6 @@ class _OrderPageState extends State<OrderPage>
     return Column(
       children: [
         getOrders(),
-
-
         getMedicalOrder(),
       ],
     );
@@ -217,7 +220,11 @@ class _OrderPageState extends State<OrderPage>
                                   onTap: () {
                                     print('asdsad');
                                     // Navigator.push(context, MaterialPageRoute(builder: (context) => MedicalActiveOrders()));
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => MedicalOrdersHelper()));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MedicalOrdersHelper()));
                                   },
                                   child: Text('Accept (00:30)',
                                       style: TextStyle(
@@ -357,7 +364,11 @@ class _OrderPageState extends State<OrderPage>
                         width: 125.0,
                         child: FlatButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ActiveOrderHelper()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ActiveOrderHelper()));
                             },
                             child: Text(
                               "Accept(00:30)",
